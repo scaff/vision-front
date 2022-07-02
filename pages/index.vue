@@ -1,9 +1,9 @@
 <template>
   <div>
-    <EntitiesCard
+    <Card
       v-for="note in notes"
       :key="note.name"
-      :type="note.type"
+      :entity="note"
       :properties="note.properties"
     />
   </div>
@@ -13,7 +13,7 @@
 import { Entity } from '../types/Entity'
 import { PropertiesType } from '../types/PropertiesType'
 
-import EntitiesCard from '../components/Entities/EntitiesCard.vue'
+import Card from '../components/Entities/Card.vue'
 
 const notes: Array<Entity> = [
   {
@@ -22,7 +22,7 @@ const notes: Array<Entity> = [
     properties: [
       {
         name: 'Created at',
-        type: PropertiesType.Date,
+        value: new Date(),
       },
     ],
   },
@@ -31,8 +31,8 @@ const notes: Array<Entity> = [
     type: 'Geospatial',
     properties: [
       {
-        name: 'Created at',
-        type: PropertiesType.Date,
+        name: 'Coordinates',
+        value: [15.04, 152.57],
       },
     ],
   },

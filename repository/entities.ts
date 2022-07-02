@@ -1,14 +1,20 @@
 import EntitiesManifest from '../config/entities'
 
-export function getComponent(componentType, entitiesType) {
-  if (!EntitiesManifest[entitiesType])
-    throw new Error(`Entity type ${entitiesType} isn't declared in manifest`)
-  if (!EntitiesManifest[entitiesType][componentType]) {
-    console.log(entitiesType, componentType)
+export function getComponent(componentType, entityType) {
+  if (!EntitiesManifest[entityType])
+    throw new Error(`Entity type ${entityType} isn't declared in manifest`)
+  if (!EntitiesManifest[entityType].components[componentType]) {
     throw new Error(
-      `Entity component ${componentType} for ${entitiesType} isn't declared in manifest`
+      `Entity component ${componentType} for ${entityType} isn't declared in manifest`
     )
   }
 
-  return EntitiesManifest[entitiesType][componentType]
+  return EntitiesManifest[entityType].components[componentType]
+}
+
+export function getProperties(entityType) {
+  if (!EntitiesManifest[entityType])
+    throw new Error(`Entity type ${entityType} isn't declared in manifest`)
+
+  return EntitiesManifest[entityType].properties
 }

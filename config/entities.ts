@@ -3,10 +3,24 @@ import GeospatialCard from '../components/Entities/Geospatial/Card.vue'
 
 const entitiesManifest = {
   TimePeriod: {
-    card: TimePeriodCard,
+    components: {
+      card: TimePeriodCard,
+    },
+    properties: {
+      'Created at': {
+        type: 'Date',
+      },
+    },
   },
   Geospatial: {
-    card: GeospatialCard,
+    components: {
+      card: GeospatialCard,
+    },
+    properties: {
+      Coordinates: {
+        type: 'GPSCoordinates',
+      },
+    },
   },
 }
 

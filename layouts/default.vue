@@ -1,11 +1,11 @@
 <template>
   <div>
     <Splitpanes>
-      <Pane min-size="10"> Left pane </Pane>
+      <Pane size="10" min-size="10"> Left pane </Pane>
       <Pane>
         <slot />
       </Pane>
-      <Pane> Right pane </Pane>
+      <Pane size="10" min-size="10"> Right pane </Pane>
     </Splitpanes>
   </div>
 </template>
